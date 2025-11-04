@@ -292,11 +292,18 @@ a:hover {
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Garante que todos os cards na mesma linha tenham a mesma altura */
 }
 
 .noticia-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+.noticia-card-conteudo {
+    flex-grow: 1; /* Empurra o botão para o final do card */
 }
 
 .noticia-card h3 {
@@ -317,6 +324,55 @@ a:hover {
 .noticia-card p {
     font-size: 0.95rem;
     color: var(--cor-secundaria);
+    margin-bottom: 1.5rem; /* Adiciona espaço antes do botão */
+}
+
+.card-feature-list {
+    margin-bottom: 1.5rem;
+}
+
+.feature-item-card {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--cor-secundaria);
+}
+
+.feature-item-card::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+    color: var(--cor-acento);
+    font-weight: 700;
+}
+
+.btn-card {
+    background-color: transparent;
+    border: 2px solid var(--cor-acento);
+    color: var(--cor-acento);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%;
+    margin-top: auto; /* Garante que o botão fique no final */
+}
+
+.card-em-breve {
+    pointer-events: none; /* Impede interações com o card */
+}
+
+.card-em-breve .noticia-card-conteudo {
+    opacity: 0.5; /* Esmaece o conteúdo do card */
+}
+
+.card-em-breve .btn-card {
+    cursor: not-allowed;
 }
 
 .about-me-grid {
@@ -399,11 +455,11 @@ a:hover {
     transform: scale(1.1);
 }
 
-.secao-mep {
+.secao-method {
     background-color: var(--cor-fundo-destaque); /* Um tom levemente diferente para destacar */
 }
 
-.secao-mep h2 {
+.secao-method h2 {
     font-size: 2.8rem;
     font-weight: 700;
     margin-bottom: 3rem;
@@ -411,14 +467,22 @@ a:hover {
     color: var(--cor-texto-principal);
 }
 
-.mep-grid-detalhado {
+.subtitulo-secao {
+    text-align: center;
+    color: var(--cor-secundaria);
+    max-width: 700px;
+    margin: -2rem auto 3rem;
+    font-size: 1.1rem;
+}
+
+.method-grid-detalhado {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
     align-items: center;
 }
 
-.mep-imagem img {
+.method-imagem img {
     width: 100%;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -535,12 +599,12 @@ a:hover {
         margin: 0 auto;
     }
 
-    .mep-grid-detalhado {
+    .method-grid-detalhado {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
 
-    .mep-imagem {
+    .method-imagem {
         order: -1; /* Coloca a imagem no topo */
     }
 
@@ -627,18 +691,18 @@ a:hover {
     }
 
     .about-me-texto h2,
-    .secao-mep h2 {
+    .secao-method h2 {
         font-size: 2.2rem;
     }
 
     /* --- REQUISIÇÃO DO USUÁRIO: Remover imagens em celulares --- */
     .about-me-imagem,
-    .mep-imagem {
+    .method-imagem {
         display: none;
     }
 
     .about-me-grid,
-    .mep-grid-detalhado {
+    .method-grid-detalhado {
         grid-template-columns: 1fr; /* Garante uma única coluna */
     }
 
