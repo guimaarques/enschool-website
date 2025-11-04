@@ -1,10 +1,8 @@
-/* Estilos para a página de post do courses */
-
 .container-post {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
-    background-color: #fdf9ff; /* Um fundo quase branco para leitura */
+    background-color: var(--cor-fundo-destaque);
     border-radius: 8px;
     margin-top: 4rem;
     margin-bottom: 4rem;
@@ -14,13 +12,13 @@
 .post-cabecalho {
     text-align: center;
     margin-bottom: 3rem;
-    border-bottom: 1px solid var(--cor-fundo);
+    border-bottom: 1px solid var(--cor-fundo-destaque);
     padding-bottom: 2rem;
 }
 
 .post-titulo {
     font-size: 2.8rem;
-    color: var(--cor-texto-escuro);
+    color: var(--cor-texto-principal);
     line-height: 1.2;
     margin-bottom: 1rem;
 }
@@ -32,7 +30,7 @@
 }
 
 .post-conteudo {
-    color: #333; /* Cor de texto escura para melhor legibilidade */
+    color: var(--cor-texto-principal);
     font-size: 1.1rem;
     line-height: 1.8;
 }
@@ -43,7 +41,7 @@
 
 .post-conteudo h2 {
     font-size: 1.8rem;
-    color: var(--cor-texto-claro);
+    color: var(--cor-acento);
     margin-top: 2.5rem;
     margin-bottom: 1rem;
 }
@@ -51,7 +49,7 @@
 .post-rodape {
     margin-top: 4rem;
     padding-top: 2rem;
-    border-top: 1px solid var(--cor-fundo);
+    border-top: 1px solid var(--cor-fundo-destaque);
 }
 
 .autor-box {
@@ -68,12 +66,12 @@
     height: 80px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--cor-card);
+    border: 3px solid var(--cor-acento);
 }
 
 .autor-info h4 {
     font-size: 1.2rem;
-    color: var(--cor-texto-escuro);
+    color: var(--cor-texto-principal);
     margin-bottom: 0.25rem;
 }
 
@@ -85,12 +83,12 @@
 
 .autor-social {
     font-weight: 600;
-    color: var(--cor-texto-claro);
+    color: var(--cor-acento);
     transition: color 0.3s ease;
 }
 
 .autor-social:hover {
-    color: var(--cor-texto-escuro);
+    color: var(--cor-acento-hover);
 }
 
 @media (max-width: 768px) {

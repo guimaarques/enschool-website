@@ -4,17 +4,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const phoneInput = document.getElementById('lead-phone');
 
     const observerOptions = {
-        root: null, // usa o viewport como a área de observação
+        root: null,
         rootMargin: '0px',
-        threshold: 0.1 // aciona quando 10% do elemento está visível
+        threshold: 0.1
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible'); // Adiciona a classe quando entra na tela
+                entry.target.classList.add('is-visible');
             } else {
-                entry.target.classList.remove('is-visible'); // Remove a classe quando sai da tela
+                entry.target.classList.remove('is-visible');
             }
         });
     }, observerOptions);
@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const toggleMenu = () => {
             menuHamburguer.classList.toggle('ativo');
             navContainer.classList.toggle('ativo');
-            // Impede o scroll da página quando o menu está aberto
             document.body.style.overflow = navContainer.classList.contains('ativo') ? 'hidden' : '';
         };
 
@@ -47,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if (phoneInput) {
         const applyPhoneMask = (event) => {
             let input = event.target;
-            // Remove tudo que não for dígito
             let value = input.value.replace(/\D/g, '');
             value = value.substring(0, 11); // Limita a 11 dígitos (DDD + 9 dígitos)
 
