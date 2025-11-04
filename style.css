@@ -337,3 +337,169 @@ a:hover {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* --- Media Queries para Responsividade --- */
+
+/* Botão Hambúrguer (inicialmente escondido) */
+.menu-hamburguer {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+}
+
+.menu-hamburguer span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--cor-texto-escuro);
+    border-radius: 5px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+/* Animação do Hambúrguer para 'X' */
+.menu-hamburguer.ativo span:nth-child(1) {
+    transform: rotate(45deg);
+}
+.menu-hamburguer.ativo span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
+}
+.menu-hamburguer.ativo span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+/* Tablets e telas menores (até 1024px) */
+@media (max-width: 1024px) {
+    .about-me-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .about-me-imagem {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .mep-grid-detalhado {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .mep-imagem {
+        order: -1; /* Coloca a imagem no topo */
+    }
+
+    .secao-destaque h2 {
+        font-size: 3rem;
+    }
+}
+
+/* Celulares (até 768px) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Garante espaço para o cabeçalho fixo */
+    }
+
+    .cabecalho {
+        padding: 0 1.5rem;
+    }
+
+    .menu-hamburguer {
+        display: flex;
+    }
+
+    .navegacao-container {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: var(--cor-card);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1050;
+    }
+
+    .navegacao-container.ativo {
+        transform: translateX(0);
+    }
+
+    .navegacao ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 2.5rem;
+    }
+
+    .navegacao a {
+        font-size: 1.5rem;
+    }
+
+    .navegacao a::after {
+        display: none; /* Remove efeito de sublinhado no mobile */
+    }
+
+    .container > section {
+        padding: 4rem 1.5rem;
+        min-height: auto; /* Remove a altura mínima para se ajustar ao conteúdo */
+    }
+
+    .secao-destaque h2 {
+        font-size: 2.5rem;
+    }
+
+    .secao-destaque p {
+        font-size: 1.1rem;
+    }
+
+    .about-me-texto h2,
+    .secao-mep h2 {
+        font-size: 2.2rem;
+    }
+
+    /* --- REQUISIÇÃO DO USUÁRIO: Remover imagens em celulares --- */
+    .about-me-imagem,
+    .mep-imagem {
+        display: none;
+    }
+
+    .about-me-grid,
+    .mep-grid-detalhado {
+        grid-template-columns: 1fr; /* Garante uma única coluna */
+    }
+
+    .secao-noticias h2 {
+        font-size: 2rem;
+    }
+
+    .rodape {
+        padding: 2rem 1rem;
+    }
+
+    .rodape .navegacao-secundaria {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .rodape .navegacao-secundaria a {
+        margin: 0;
+    }
+
+    /* Remove o separador '|' no rodapé mobile */
+    .rodape .navegacao-secundaria a:not(:last-child)::after {
+        content: '';
+    }
+}
