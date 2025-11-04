@@ -265,7 +265,7 @@ a:hover {
     color: var(--cor-secundaria);
 }
 
-.secao-noticias h2 {
+.secao-products h2 {
     font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 2rem;
@@ -274,18 +274,19 @@ a:hover {
     padding-bottom: 0;
 }
 
-.grid-noticias {
+.grid-products {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
-.noticia-link {
+.product-link {
     text-decoration: none;
     color: inherit; /* Herda a cor do texto para não ficar azul */
+    flex-direction: column; /* Alinha o conteúdo do card internamente */
 }
 
-.noticia-card {
+.product-card {
     background-color: var(--cor-fundo-destaque);
     padding: 1.5rem;
     border-radius: 12px;
@@ -296,16 +297,16 @@ a:hover {
     height: 100%; /* Garante que todos os cards na mesma linha tenham a mesma altura */
 }
 
-.noticia-card:hover {
+.product-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.3);
 }
 
-.noticia-card-conteudo {
+.product-card-conteudo {
     flex-grow: 1; /* Empurra o botão para o final do card */
 }
 
-.noticia-card h3 {
+.product-card h3 {
     font-size: 1.35rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -313,14 +314,14 @@ a:hover {
     line-height: 1.3;
 }
 
-.noticia-card .meta {
+.product-card .meta {
     font-size: 0.85rem;
     color: var(--cor-secundaria);
     margin-bottom: 1rem;
     display: block;
 }
 
-.noticia-card p {
+.product-card p {
     font-size: 0.95rem;
     color: var(--cor-secundaria);
     margin-bottom: 1.5rem; /* Adiciona espaço antes do botão */
@@ -366,7 +367,7 @@ a:hover {
     pointer-events: none; /* Impede interações com o card */
 }
 
-.card-em-breve .noticia-card-conteudo {
+.card-em-breve .product-card-conteudo {
     opacity: 0.5; /* Esmaece o conteúdo do card */
 }
 
@@ -720,7 +721,7 @@ a:hover {
         grid-template-columns: 1fr; /* Garante uma única coluna */
     }
 
-    .secao-noticias h2 {
+    .secao-products h2 {
         font-size: 2rem;
     }
 
