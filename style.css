@@ -136,16 +136,71 @@ a:hover {
     margin: 0 auto;
 }
 
-.secao-destaque {
-    text-align: center;
-}
-
-
 .secao-destaque h2 {
     font-size: 4rem;
     font-weight: 800;
     margin-bottom: 2rem;
     line-height: 1.2;
+}
+
+.destaque-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+}
+
+.destaque-texto {
+    text-align: left;
+}
+
+.destaque-form-container {
+    background-color: var(--cor-card);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.lead-form h3 {
+    color: var(--cor-texto-escuro);
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.lead-form p {
+    color: var(--cor-secundaria);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.lead-form .form-group {
+    margin-bottom: 1.2rem;
+}
+
+.lead-form .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--cor-secundaria);
+}
+
+.lead-form .form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    background-color: #f3e9fc;
+}
+
+.lead-form .btn-cta {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 14px;
 }
 
 .secao-destaque p {
@@ -181,6 +236,11 @@ a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
+}
+
+.noticia-link {
+    text-decoration: none;
+    color: inherit; /* Herda a cor do texto para não ficar azul */
 }
 
 .noticia-card {
@@ -262,7 +322,7 @@ a:hover {
     font-weight: 700;
     margin-bottom: 3rem;
     text-align: center;
-    color: var(--cor-texto-escuro);
+    color: var(--cor-texto-claro);
 }
 
 .mep-grid-detalhado {
@@ -292,13 +352,13 @@ a:hover {
     left: 0;
     top: 0;
     font-size: 1.5rem;
-    color: var(--cor-texto-escuro);
+    color: var(--cor-texto-claro);
     font-weight: 700;
 }
 
 .feature-item h4 {
     font-size: 1.3rem;
-    color: var(--cor-texto-escuro);
+    color: var(--cor-texto-claro);
     margin-bottom: 0.5rem;
 }
 
@@ -401,6 +461,13 @@ a:hover {
     .secao-destaque h2 {
         font-size: 3rem;
     }
+
+    .destaque-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+        max-width: 600px;
+    }
 }
 
 /* Celulares (até 768px) */
@@ -462,6 +529,10 @@ a:hover {
 
     .secao-destaque p {
         font-size: 1.1rem;
+    }
+
+    .destaque-texto {
+        text-align: center;
     }
 
     .about-me-texto h2,

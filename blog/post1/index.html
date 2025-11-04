@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend 2025: O Fim do Bundling? - Teacher Isabella Dias</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../post.css">
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div class="cabecalho-conteudo">
+            <div class="logo">
+                <h1>Teacher Isabella Dias</h1>
+            </div>
+            <button class="menu-hamburguer" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="navegacao-container">
+                <nav class="navegacao">
+                    <ul>
+                        <li><a href="../../index.html#home">Home</a></li>
+                        <li><a href="../../index.html#about-me">About me</a></li>
+                        <li><a href="../../index.html#mep">MEP</a></li>
+                        <li><a href="../../index.html#blog">Blog</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="btn-cta">Quero ser Aluno</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container-post">
+        <article class="post">
+            <header class="post-cabecalho">
+                <h1 class="post-titulo">Frontend 2025: O Fim do Bundling?</h1>
+                <p class="post-meta">Por Jane Doe | 14 de Outubro, 2025</p>
+            </header>
+
+            <div class="post-conteudo">
+                <p>Com o avanço dos módulos ES nativos e ferramentas como Vite, a necessidade de empacotamento complexo no frontend está diminuindo. Ferramentas de build que antes eram essenciais, como Webpack e Parcel, estão vendo seu papel mudar de "empacotador" para "orquestrador de desenvolvimento".</p>
+                <p>A principal razão para essa mudança é o suporte nativo dos navegadores aos Módulos ES (ESM). Em vez de agrupar todo o código JavaScript em um único arquivo gigante (bundle), agora podemos carregar módulos diretamente no navegador. Isso simplifica o ambiente de desenvolvimento, acelera o hot-reloading e pode até melhorar o desempenho de carregamento em produção, graças ao cache granular de módulos.</p>
+                
+                <h2>O que isso significa na prática?</h2>
+                <p>Para novos projetos, a configuração inicial se torna drasticamente mais simples. Ferramentas como o Vite utilizam o ESM nativo durante o desenvolvimento para fornecer um feedback quase instantâneo. Para produção, elas ainda realizam uma etapa de build otimizada, mas o processo é muito mais rápido e alinhado com os padrões modernos da web.</p>
+                <p>Isso não significa o fim completo do bundling. Para aplicações muito grandes e complexas, ou para garantir compatibilidade com navegadores mais antigos, o bundling ainda tem seu lugar. No entanto, a tendência é clara: o futuro do desenvolvimento frontend é menos sobre empacotamento e mais sobre aproveitar o poder nativo da plataforma web.</p>
+            </div>
+
+            <footer class="post-rodape">
+                <div class="autor-box">
+                    <img src="../../img-aboutme.jfif" alt="Foto da Teacher Isabella Dias" class="autor-imagem">
+                    <div class="autor-info">
+                        <h4>Sobre a Teacher Isabella Dias</h4>
+                        <p>Apaixonada por idiomas e tecnologia, Isa explora as novas tendências que moldam nosso mundo digital e linguístico.</p>
+                        <a href="https://www.instagram.com/teacherisabelladias/" target="_blank" rel="noopener noreferrer" class="autor-social">Siga no Instagram &rarr;</a>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </main>
+
+    <footer class="rodape">
+        <div class="navegacao-secundaria">
+            <a href="#">Política de Privacidade</a> | <a href="#">Trabalhe Conosco</a> | <a href="https://wa.me/5511984824660">Fale Conosco</a>
+        </div>
+        <p>Copyright &copy; 2025 Teacher Isabella Dias. Todos os direitos reservados.</p>
+    </footer>
+    <script src="../../script.js"></script>
+</body>
+</html>

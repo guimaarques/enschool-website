@@ -35,10 +35,31 @@
     <main class="container">
         
         <section id="home" class="secao-destaque" aria-labelledby="featured-heading">
-            <div class="conteudo-secao">
-                <h2 id="featured-heading" class="fade-in">Manual English in Practice</h2>
-                <p class="fade-in">O Guia definitivo do seu inglês</p>
-                <a href="#" class="leia-mais fade-in">Saiba mais &rarr;</a>
+            <div class="conteudo-secao destaque-grid">
+                <div class="destaque-texto">
+                    <h2 id="featured-heading" class="fade-in">Manual English in Practice</h2>
+                    <p class="fade-in">O Guia definitivo para destravar o seu inglês e alcançar a fluência.</p>
+                    <a href="#mep" class="leia-mais fade-in">Conheça o método &rarr;</a>
+                </div>
+                <div class="destaque-form-container fade-in">
+                    <form id="lead-form" class="lead-form">
+                        <h3>Comece sua jornada!</h3>
+                        <p>Deixe seus dados para receber mais informações sobre as aulas.</p>
+                        <div class="form-group">
+                            <label for="lead-name">Nome Completo</label>
+                            <input type="text" id="lead-name" name="name" required placeholder="Seu nome aqui">
+                        </div>
+                        <div class="form-group">
+                            <label for="lead-email">E-mail</label>
+                            <input type="email" id="lead-email" name="email" required placeholder="seu.email@exemplo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="lead-phone">Telefone</label>
+                            <input type="tel" id="lead-phone" name="phone" required placeholder="(XX) XXXXX-XXXX">
+                        </div>
+                        <button type="submit" class="btn-cta">Quero saber mais</button>
+                    </form>
+                </div>
             </div>
         </section>
 
@@ -94,11 +115,13 @@
             <div class="conteudo-secao">
                 <h2 id="recent-news-heading" class="fade-in">Notícias de Última Hora</h2>
                 <div class="grid-noticias">
-                    <article class="noticia-card fade-in">
-                        <h3>Frontend 2025: O Fim do Bundling?</h3>
-                        <span class="meta">Por Jane Doe | 14 de Outubro, 2025</span>
-                        <p>Com o avanço dos módulos ES nativos e ferramentas como Vite, a necessidade de empacotamento complexo no frontend está diminuindo.</p>
-                    </article>
+                    <a href="blog/post1/index.html" class="noticia-link">
+                        <article class="noticia-card fade-in">
+                            <h3>Frontend 2025: O Fim do Bundling?</h3>
+                            <span class="meta">Por Jane Doe | 14 de Outubro, 2025</span>
+                            <p>Com o avanço dos módulos ES nativos e ferramentas como Vite, a necessidade de empacotamento complexo no frontend está diminuindo.</p>
+                        </article>
+                    </a>
     
                     <article class="noticia-card fade-in">
                         <h3>Deno e Fresh Framework: A Nova Cara do Backend</h3>
