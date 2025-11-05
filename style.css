@@ -241,6 +241,27 @@ a:hover {
     padding: 14px;
 }
 
+.form-message {
+    margin-top: 1rem;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s ease;
+}
+
+.form-message.success {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    opacity: 1;
+}
+.form-message.error {
+    background-color: #f44336; /* Vermelho */
+    color: white;
+    opacity: 1;
+}
 .secao-destaque p {
     color: var(--cor-secundaria);
     font-size: 1.25rem;
