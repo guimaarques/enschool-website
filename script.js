@@ -124,4 +124,27 @@ document.addEventListener("DOMContentLoaded", function() {
             }, 5000);
         }
     }
+
+    // Lógica para animar o formulário ao clicar no CTA do header
+    const ctaHeaderButtons = document.querySelectorAll('.cabecalho .btn-cta');
+    const formContainer = document.querySelector('.destaque-form-container');
+
+    if (ctaHeaderButtons.length > 0 && formContainer) {
+        ctaHeaderButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault(); // Previne o comportamento padrão do link
+
+                // Rola a página suavemente para a seção do formulário
+                formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Adiciona a classe para a animação
+                formContainer.classList.add('shake-animation');
+
+                // Remove a classe após a animação para que possa ser re-acionada
+                setTimeout(() => {
+                    formContainer.classList.remove('shake-animation');
+                }, 820); // Duração deve ser igual à da animação em CSS (0.82s)
+            });
+        });
+    }
 });

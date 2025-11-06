@@ -593,6 +593,29 @@ a:hover {
     transform: rotate(-45deg);
 }
 
+/* Animação de "shake" para o formulário */
+@keyframes shake {
+  10%, 90% {
+    transform: translateX(-1px);
+  }
+  20%, 80% {
+    transform: translateX(2px);
+  }
+  30%, 50%, 70% {
+    transform: translateX(-4px);
+  }
+  40%, 60% {
+    transform: translateX(4px);
+  }
+}
+
+.shake-animation {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
 @media (max-width: 1024px) {
     .about-me-grid {
         grid-template-columns: 1fr;
@@ -615,7 +638,7 @@ a:hover {
     }
 
     .secao-destaque h1 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .destaque-grid {
