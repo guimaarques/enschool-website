@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const menuHamburguer = document.querySelector('.menu-hamburguer');
     const phoneInput = document.getElementById('lead-phone');
     const leadForm = document.getElementById('lead-form'); // Referência ao formulário
+    const workForm = document.getElementById('work-with-us-form');
     const formMessage = document.getElementById('form-message'); // Referência ao div de mensagens
 
     const observerOptions = {
@@ -22,6 +23,32 @@ document.addEventListener("DOMContentLoaded", function() {
     }, observerOptions);
 
     fadeInElements.forEach(el => observer.observe(el));
+
+    // Lógica para rolagem suave baseada na URL
+    const handlePathScrolling = () => {
+        const pathMap = {
+            '/sobre': '#about-me',
+            '/metodo': '#method',
+            '/cursos': '#courses'
+        };
+
+        const currentPath = window.location.pathname;
+        const targetId = pathMap[currentPath];
+
+        if (targetId) {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                // Usamos um pequeno timeout para garantir que a página esteja pronta
+                setTimeout(() => {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+    };
+
+    // Executa a função de rolagem ao carregar a página
+    handlePathScrolling();
+
 
     // Lógica do Menu Hambúrguer
     if (menuHamburguer) {
@@ -145,6 +172,19 @@ document.addEventListener("DOMContentLoaded", function() {
                     formContainer.classList.remove('shake-animation');
                 }, 820); // Duração deve ser igual à da animação em CSS (0.82s)
             });
+        });
+    }
+
+    // Lógica para exibir nome do arquivo no formulário de "Trabalhe Conosco"
+    const fileInput = document.getElementById('work-resume');
+    if (fileInput) {
+        const fileNameDisplay = document.getElementById('file-name');
+        fileInput.addEventListener('change', function() {
+            if (this.files && this.files.length > 0) {
+                fileNameDisplay.textContent = this.files[0].name;
+            } else {
+                fileNameDisplay.textContent = 'Nenhum arquivo selecionado';
+            }
         });
     }
 });

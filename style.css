@@ -241,6 +241,53 @@ a:hover {
     padding: 14px;
 }
 
+.lead-form .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.lead-form .form-group textarea:focus {
+    outline: none;
+    border-color: var(--cor-acento);
+    box-shadow: 0 0 0 3px rgba(155, 93, 224, 0.25);
+}
+
+/* Estilização do Input de Arquivo */
+.lead-form .form-group input[type="file"] {
+    display: none; /* Esconde o input padrão */
+}
+
+.btn-file-upload {
+    display: inline-block;
+    background-color: var(--cor-fundo);
+    color: var(--cor-acento);
+    border: 1px solid var(--cor-acento);
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right: 10px;
+}
+
+.btn-file-upload:hover {
+    background-color: var(--cor-acento);
+    color: #fff;
+}
+
+.file-name-display {
+    font-size: 0.9rem;
+    color: var(--cor-secundaria);
+}
+
 .form-message {
     margin-top: 1rem;
     padding: 10px;
@@ -750,3 +797,75 @@ a:hover {
     .rodape .navegacao-secundaria a:not(:last-child)::after {
         content: '';
     }
+
+    .secao-formulario-geral {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* Estilos para a página de erro */
+.container-erro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: calc(100vh - 120px); /* Altura total menos header e footer */
+    padding: 2rem;
+}
+
+.codigo-erro {
+    font-size: 8rem;
+    font-weight: 900;
+    color: var(--cor-acento);
+    line-height: 1;
+}
+
+.titulo-erro {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+.mensagem-erro {
+    color: var(--cor-secundaria);
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+}
+
+/* Estilos para páginas de texto (Política de Privacidade, etc.) */
+.container-texto {
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.conteudo-texto {
+    max-width: 800px;
+    width: 100%;
+}
+
+.conteudo-texto h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--cor-texto-principal);
+}
+
+.conteudo-texto h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--cor-texto-principal);
+}
+
+.conteudo-texto p {
+    color: var(--cor-secundaria);
+    margin-bottom: 1rem;
+}
+
+.meta-texto {
+    color: var(--cor-secundaria);
+    font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+}

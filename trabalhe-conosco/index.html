@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhe Conosco - Teacher Isabella Dias</title>
+    <meta name="description" content="Faça parte da nossa equipe! Envie seu currículo e venha transformar a educação bilíngue conosco.">
+    <link 
+        rel="icon" 
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='80' font-size='90' text-anchor='middle'>🟣</text></svg>">
+    <link rel="apple-touch-icon" sizes="180x180" href="../logo.png">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    
+    <header class="cabecalho">
+        <div class="cabecalho-conteudo">
+            <div class="logo">
+                <p><a href="../index.html#home">Teacher Isabella Dias</a></p>
+            </div>
+            <button class="menu-hamburguer" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="navegacao-container">
+                <nav class="navegacao">
+                    <ul>
+                        <li><a href="../index.html#home">Início</a></li>
+                        <li><a href="../index.html#about-me">Sobre</a></li>
+                        <li><a href="../index.html#method">Método</a></li>
+                        <li><a href="../index.html#courses">Cursos</a></li>
+                    </ul>
+                </nav>
+                <a href="https://wa.me/5511984824660" target="_blank" rel="noopener noreferrer" class="btn-cta">Quero ser Aluno</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="secao-formulario-geral" aria-labelledby="form-heading">
+            <div class="conteudo-secao">
+                <div class="destaque-form-container">
+                    <form id="work-with-us-form" class="lead-form">
+                        <h1 id="form-heading">Faça Parte da Nossa Equipe</h1>
+                        <p>Estamos sempre em busca de talentos apaixonados por educação. Se você se identifica com nosso método, envie sua candidatura!</p>
+                        
+                        <div class="form-group">
+                            <label for="work-name">Nome Completo</label>
+                            <input type="text" id="work-name" name="name" required placeholder="Seu nome aqui">
+                        </div>
+                        <div class="form-group">
+                            <label for="work-email">E-mail</label>
+                            <input type="email" id="work-email" name="email" required placeholder="seu.email@exemplo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="work-phone">Telefone</label>
+                            <input type="tel" id="work-phone" name="phone" required placeholder="(XX) XXXXX-XXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="work-resume">Anexe seu currículo (PDF, DOC, DOCX)</label>
+                            <input type="file" id="work-resume" name="resume" required accept=".pdf,.doc,.docx">
+                            <label for="work-resume" class="btn-file-upload">Escolher arquivo</label>
+                            <span id="file-name" class="file-name-display">Nenhum arquivo selecionado</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="work-message">Mensagem (Opcional)</label>
+                            <textarea id="work-message" name="message" rows="4" placeholder="Fale um pouco sobre você e por que quer trabalhar conosco."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-cta">Enviar Candidatura</button>
+                        <div id="form-message" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="navegacao-secundaria">
+            <a href="/politica-de-privacidade/">Política de Privacidade</a> | <a href="/banco-de-talentos/">Trabalhe Conosco</a> | <a href="https://wa.me/5511984824660">Fale Conosco</a>
+        </div>
+        <p>Copyright &copy; 2025 Teacher Isabella Dias. Todos os direitos reservados.</p>
+    </footer>
+    <script src="../script.js"></script>
+    <script src="../forms-validation.js"></script>
+</body>
+</html>
