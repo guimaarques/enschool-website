@@ -187,4 +187,23 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
+    // Lógica do Banner de Cookies
+    const cookieBanner = document.getElementById('cookie-consent-banner');
+    const acceptCookiesButton = document.getElementById('accept-cookies');
+
+    if (cookieBanner && acceptCookiesButton) {
+        // Verifica se os cookies já foram aceitos
+        if (!localStorage.getItem('cookiesAccepted')) {
+            // Usa um timeout para o banner deslizar para cima após um momento
+            setTimeout(() => {
+                cookieBanner.classList.add('show');
+            }, 500);
+        }
+
+        acceptCookiesButton.addEventListener('click', () => {
+            cookieBanner.classList.remove('show');
+            localStorage.setItem('cookiesAccepted', 'true');
+        });
+    }
 });
