@@ -71,6 +71,25 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Lógica para rolagem suave sem alterar a URL
+    const internalLinks = document.querySelectorAll('.navegacao a[href^="#"]');
+
+    internalLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Previne a alteração da URL
+
+            const href = this.getAttribute('href');
+            const targetElement = document.querySelector(`[id="${href.substring(1)}"]`);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
     // Lógica da Máscara de Telefone
     if (phoneInput) {
         const applyPhoneMask = (event) => {
