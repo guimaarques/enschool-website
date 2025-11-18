@@ -58,9 +58,9 @@ a:hover {
     align-items: center;
 }
 
-.logo p {
-    margin: 0; /* Reseta a margem padrão do parágrafo */
-    font-size: 1.2rem;
+.logo div {
+    margin: 0;
+    font-size: 1.2rem; /* Aumentado para melhor visibilidade */
     color: var(--cor-texto-principal);
     font-weight: 700;
 }
@@ -765,8 +765,7 @@ a:hover {
         font-size: 2.2rem;
     }
 
-    /* --- REQUISIÇÃO DO USUÁRIO: Remover imagens em celulares --- */
-    .about-me-imagem,
+    /* Esconde a imagem do método em celulares para economizar espaço vertical */
     .method-imagem {
         display: none;
     }
@@ -870,6 +869,35 @@ a:hover {
     margin-bottom: 2.5rem;
 }
 
+/* Estilos para a página de Fale Conosco */
+.social-icons-contato {
+    justify-content: center; /* Centraliza os ícones */
+    gap: 2rem; /* Aumenta o espaçamento */
+    margin-top: 1.5rem;
+}
+
+.social-icons-contato svg {
+    /* Aumenta o tamanho dos ícones nesta seção específica */
+    width: 32px;
+    height: 32px;
+}
+
+.social-link {
+    background-color: var(--cor-fundo-destaque);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 1px solid var(--cor-fundo-destaque);
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    background-color: var(--cor-acento);
+    color: #fff;
+}
 /* Cookie Consent Banner */
 .cookie-banner {
     position: fixed;

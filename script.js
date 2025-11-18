@@ -72,13 +72,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Lógica para rolagem suave sem alterar a URL
-    const internalLinks = document.querySelectorAll('.navegacao a[href^="#"]');
+    const internalLinks = document.querySelectorAll('a[href^="#"]');
 
     internalLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault(); // Previne a alteração da URL
-
             const href = this.getAttribute('href');
+            // Previne o comportamento padrão apenas para links que não são vazios (#)
+            if (href.length > 1) {
+                e.preventDefault();
+            }
+
+            // Pega o ID do alvo, removendo o '#'
             const targetElement = document.querySelector(`[id="${href.substring(1)}"]`);
 
             if (targetElement) {
