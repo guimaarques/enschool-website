@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
 
-            const apiUrl = 'http://localhost/customers';
+            const apiUrl = 'https://5mxzti9vx0.execute-api.us-east-1.amazonaws.com/prod/customers';
 
             try {
                 const response = await fetch(apiUrl, {
@@ -138,8 +138,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        full_name: full_name,
-                        telephone: telephone,
+                        name: full_name,
+                        number: telephone,
                         email: email
                     })
                 });
