@@ -175,25 +175,26 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Lógica para animar o formulário ao clicar no CTA do header
-    const ctaHeaderButtons = document.querySelectorAll('.cabecalho .btn-cta');
+    // Lógica para animar o formulário ao clicar nos CTAs
+    const formScrollTriggers = document.querySelectorAll('.js-scroll-to-form');
     const formContainer = document.querySelector('.destaque-form-container');
 
-    if (ctaHeaderButtons.length > 0 && formContainer) {
-        ctaHeaderButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
+    if (formScrollTriggers.length > 0 && formContainer) {
+        formScrollTriggers.forEach(trigger => {
+            trigger.addEventListener('click', function(e) {
                 e.preventDefault(); // Previne o comportamento padrão do link
 
                 // Rola a página suavemente para a seção do formulário
                 formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-                // Adiciona a classe para a animação
-                formContainer.classList.add('shake-animation');
-
-                // Remove a classe após a animação para que possa ser re-acionada
-                setTimeout(() => {
-                    formContainer.classList.remove('shake-animation');
-                }, 820); // Duração deve ser igual à da animação em CSS (0.82s)
+                // Adiciona a classe para a animação e a remove depois
+                // Garante que a animação não seja adicionada se já estiver presente
+                if (!formContainer.classList.contains('shake-animation')) {
+                    formContainer.classList.add('shake-animation');
+                    setTimeout(() => {
+                        formContainer.classList.remove('shake-animation');
+                    }, 820); // Duração deve ser igual à da animação em CSS
+                }
             });
         });
     }
