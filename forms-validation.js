@@ -16,11 +16,30 @@ document.addEventListener("DOMContentLoaded", function() {
             // Remove todos os caracteres não-numéricos do telefone
             const telephone = phoneInputElement.value.replace(/\D/g, ''); 
 
-            // Validação básica
-            if (!full_name || !email || !telephone) {
-                displayMessage('Por favor, preencha todos os campos.', 'error');
+            // --- Validações Avançadas ---
+
+            // Validação do Nome (deve ter pelo menos duas palavras)
+            if (full_name.split(' ').filter(n => n).length < 2) {
+                displayMessage('Por favor, insira seu nome e sobrenome.', 'error');
+                fullNameInput.focus(); // Foca no campo com erro
                 return;
             }
+
+            // Validação do E-mail (formato válido)
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                displayMessage('Por favor, insira um e-mail válido (ex: seu.email@exemplo.com).', 'error');
+                emailInput.focus();
+                return;
+            }
+
+            // Validação do Telefone (deve ter 11 dígitos: DDD + 9 dígitos)
+            if (telephone.length !== 11) {
+                displayMessage('Por favor, insira um telefone válido com DDD (ex: (11) 98765-4321).', 'error');
+                phoneInputElement.focus();
+                return;
+            }
+            // --- Fim das Validações ---
 
             const apiUrl = 'https://5mxzti9vx0.execute-api.us-east-1.amazonaws.com/prod/customers';
 

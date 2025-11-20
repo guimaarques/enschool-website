@@ -113,56 +113,6 @@ document.addEventListener("DOMContentLoaded", function() {
         phoneInput.addEventListener('input', applyPhoneMask);
     }
 
-    // Lógica de envio do formulário para a API
-    if (leadForm) {
-        leadForm.addEventListener('submit', async function(e) {
-            e.preventDefault(); // Previne o envio padrão do formulário
-
-            const fullNameInput = document.getElementById('lead-name');
-            const emailInput = document.getElementById('lead-email');
-            const phoneInputElement = document.getElementById('lead-phone');
-
-            const full_name = fullNameInput.value.trim();
-            const email = emailInput.value.trim();
-            // Remove todos os caracteres não-numéricos do telefone
-            const telephone = phoneInputElement.value.replace(/\D/g, ''); 
-
-            // Validação básica
-            if (!full_name || !email || !telephone) {
-                displayMessage('Por favor, preencha todos os campos.', 'error');
-                return;
-            }
-
-            const apiUrl = 'https://5mxzti9vx0.execute-api.us-east-1.amazonaws.com/prod/customers';
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        name: full_name,
-                        number: telephone,
-                        email: email
-                    })
-                });
-
-                if (response.ok) {
-                    // const data = await response.json(); // Se a API retornar JSON de sucesso
-                    displayMessage('Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.', 'success');
-                    leadForm.reset(); // Limpa o formulário após o sucesso
-                } else {
-                    // const errorData = await response.json(); // Se a API retornar JSON de erro
-                    displayMessage('Ocorreu um erro ao enviar sua mensagem. Tente novamente.', 'error');
-                }
-            } catch (error) {
-                console.error('Erro na requisição:', error);
-                displayMessage('Não foi possível conectar ao servidor. Verifique sua conexão.', 'error');
-            }
-        });
-    }
-
     function displayMessage(message, type) {
         if (formMessage) {
             formMessage.textContent = message;
