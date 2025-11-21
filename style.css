@@ -110,21 +110,21 @@ a:hover {
 }
 
 .btn-cta {
-    background-color: var(--cor-acento);
-    color: #fff;
+    background-color: #FFD166;
+    color: var(--cor-fundo);
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-cta:hover {
-    background-color: var(--cor-acento-hover);
-    box-shadow: 0 8px 20px rgba(155, 93, 224, 0.3);
-    color: #fff;
+    background-color: #fcc43d; /* Amarelo um pouco mais escuro para hover */
+    box-shadow: 0 8px 20px rgba(255, 209, 102, 0.25);
+    color: var(--cor-fundo);
 }
 
 .container {
@@ -277,9 +277,9 @@ a:hover {
 
 .btn-file-upload {
     display: inline-block;
-    background-color: var(--cor-fundo);
-    color: var(--cor-acento);
-    border: 1px solid var(--cor-acento);
+    background-color: transparent;
+    color: #FFD166;
+    border: 1px solid #FFD166;
     padding: 10px 15px;
     border-radius: 8px;
     cursor: pointer;
@@ -288,8 +288,8 @@ a:hover {
 }
 
 .btn-file-upload:hover {
-    background-color: var(--cor-acento);
-    color: #fff;
+    background-color: #FFD166;
+    color: var(--cor-fundo);
 }
 
 .file-name-display {
@@ -423,15 +423,15 @@ a:hover {
 }
 
 .btn-card {
-    background-color: transparent;
-    border: 2px solid var(--cor-acento);
-    color: var(--cor-acento);
+    background-color: #FFD166;
+    border: 2px solid #FFD166;
+    color: var(--cor-fundo);
     padding: 10px 20px;
     border-radius: 8px;
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
     width: 100%;
     margin-top: auto;
 }
@@ -491,6 +491,13 @@ a:hover {
     padding: 0.1em 0.4em;
     border-radius: 4px;
     font-weight: 700;
+}
+
+.highlight-yellow {
+    background-color: #FFD166;
+    color: var(--cor-fundo);
+    border-radius: 5px;
+    line-height: 1.5; /* Garante que o fundo não sobreponha outras linhas */
 }
 
 .social-icons {
