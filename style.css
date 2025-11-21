@@ -123,21 +123,30 @@ a:hover {
 
 .btn-cta:hover {
     background-color: var(--cor-acento-hover);
+    box-shadow: 0 8px 20px rgba(155, 93, 224, 0.3);
     color: #fff;
 }
 
 .container {
     display: grid;
-    gap: 2rem;
     grid-template-columns: 1fr;
 }
 
+/* Alternância de cores das seções */
+.container > section:nth-of-type(even) {
+    background-color: var(--cor-fundo-destaque);
+}
+.container > section.secao-destaque {
+    background-color: transparent; /* Garante que a imagem de fundo da hero não seja sobrescrita */
+}
+
 .container > section {
+    /* Restaura o alinhamento vertical e a altura mínima das seções */
     min-height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2rem;
+    padding: 4rem 2rem; /* Aumenta o padding vertical para um bom espaçamento interno */
 }
 
 .conteudo-secao {
@@ -579,8 +588,7 @@ a:hover {
     background-color: #000;
     color: var(--cor-secundaria);
     text-align: center;
-    padding: 3rem 1.5rem;
-    margin-top: 4rem;
+    padding: 3rem 1.5rem 2rem 1.5rem;
     border-top: 1px solid var(--cor-fundo-destaque);
 }
 
@@ -935,4 +943,110 @@ a:hover {
     font-size: 0.9rem;
     margin-left: 2rem;
     flex-shrink: 0;
+}
+
+/* --- Estilos da Página MEP --- */
+
+/* Seção Hero MEP */
+.mep-hero {
+    text-align: center;
+    min-height: 70vh;
+}
+
+.mep-hero .destaque-texto {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mep-hero h1 {
+    font-size: 3.5rem;
+}
+
+.mep-hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Seção Explicação MEP */
+.secao-mep-explanation {
+    /* Padding já é herdado de .container > section */
+}
+
+.mep-explanation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.mep-explanation-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.mep-explanation-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Seção Features MEP */
+.feature-card {
+    background-color: var(--cor-fundo-destaque);
+    border-radius: 12px;
+    overflow: hidden; /* Garante que a imagem respeite o border-radius */
+    text-align: center;
+    padding-bottom: 1.5rem;
+}
+
+.feature-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h4 {
+    font-size: 1.3rem;
+    margin: 0 1.5rem 0.5rem 1.5rem;
+    color: var(--cor-texto-principal);
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    color: var(--cor-secundaria);
+    padding: 0 1.5rem;
+}
+
+/* Seção CTA Final MEP */
+.secao-mep-cta {
+    background-color: var(--cor-fundo-destaque);
+    text-align: center;
+    /* Padding já é herdado de .container > section */
+}
+
+.secao-mep-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.secao-mep-cta p {
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+    color: var(--cor-secundaria);
+}
+
+.btn-cta-grande {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .mep-explanation-grid {
+        grid-template-columns: 1fr;
+    }
+    .mep-hero h1 {
+        font-size: 2.5rem;
+    }
 }
