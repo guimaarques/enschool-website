@@ -1093,6 +1093,74 @@ a:hover {
     color: var(--cor-texto-principal);
 }
 
+/* Estilo para os itens da lista de features do CTA */
+.mep-cta-features li {
+    position: relative;
+    padding-left: 25px; /* Espaço para o checkmark */
+}
+
+.mep-cta-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem; /* Tamanho do checkmark */
+    color: #FFD166; /* Checkmark amarelo */
+    font-weight: 700;
+}
+
+/* Estilos para o bloco de preços */
+.mep-price-box {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    background-color: var(--cor-fundo); /* Fundo mais escuro para o box de preço */
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    text-align: center; /* Centraliza o texto dentro do box */
+}
+
+.mep-price-box p {
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.mep-price-box .old-price {
+    font-size: 1rem;
+    color: var(--cor-secundaria);
+    opacity: 0.7;
+    margin-bottom: 0; /* Reduz o espaço após o preço antigo */
+}
+
+.mep-price-box .strikethrough {
+    text-decoration: line-through;
+    font-weight: 400;
+}
+
+.mep-price-box .installments {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+    margin-bottom: 0.5rem;
+}
+
+.mep-price-box .cash-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+    margin-bottom: 0; /* Sem margem inferior para a última linha de preço */
+}
+
+.mep-price-box .price-highlight {
+    color: #FFD166; /* Amarelo para destacar o preço */
+    font-size: 2.2rem; /* Torna o preço parcelado bem proeminente */
+}
+
+.mep-price-box .cash-price .price-highlight {
+    font-size: 1.8rem; /* Ajusta o tamanho do destaque do preço à vista */
+}
+
 .btn-cta-grande {
     padding: 1rem 2.5rem;
     font-size: 1.2rem;
@@ -1146,11 +1214,20 @@ a:hover {
         font-size: 2rem; /* Ajusta o título da seção de venda */
     }
 
-    /* Ajustes para o botão de CTA na seção de vendas do MEP */
-    .secao-mep-cta .btn-cta-grande {
-        display: block; /* Faz o botão ocupar a largura total */
-        width: 100%; /* Garante que ocupe 100% da largura do container */
-        padding: 0.8rem 1.5rem; /* Ajusta o padding para telas menores */
-        font-size: 1rem; /* Reduz o tamanho da fonte para caber melhor */
+    /* Ajustes para mobile no bloco de preços */
+    .mep-price-box {
+        padding: 1rem 1.5rem;
+    }
+    .mep-price-box .installments {
+        font-size: 1.6rem;
+    }
+    .mep-price-box .cash-price {
+        font-size: 1.2rem;
+    }
+    .mep-price-box .price-highlight {
+        font-size: 1.8rem;
+    }
+    .mep-price-box .cash-price .price-highlight {
+        font-size: 1.5rem;
     }
 }
