@@ -756,6 +756,11 @@ a:hover {
         min-height: auto;
     }
 
+    /* Garante que a seção principal do MEP ocupe a tela inteira no mobile */
+    .container > section.mep-hero {
+        min-height: calc(100vh - 60px);
+    }
+
     .secao-destaque h1 {
         font-size: 2.5rem;
     }
@@ -1116,7 +1121,36 @@ a:hover {
     .mep-explanation-grid {
         grid-template-columns: 1fr;
     }
+
     .mep-hero h1 {
-        font-size: 2.5rem;
+        font-size: 3rem; /* Tamanho ajustado para mobile */
+    }
+
+    .mep-hero p {
+        font-size: 1.2rem; /* Tamanho ajustado para mobile */
+    }
+
+    .mep-explanation-text h2 {
+        font-size: 2rem; /* Ajusta o título da seção de explicação */
+    }
+
+    .feature-card h4 {
+        font-size: 1.2rem; /* Ajusta o título dos cards de features */
+    }
+
+    .mep-cta-card {
+        padding: 2rem; /* Reduz o padding interno do card de venda */
+    }
+
+    .secao-mep-cta h2 {
+        font-size: 2rem; /* Ajusta o título da seção de venda */
+    }
+
+    /* Ajustes para o botão de CTA na seção de vendas do MEP */
+    .secao-mep-cta .btn-cta-grande {
+        display: block; /* Faz o botão ocupar a largura total */
+        width: 100%; /* Garante que ocupe 100% da largura do container */
+        padding: 0.8rem 1.5rem; /* Ajusta o padding para telas menores */
+        font-size: 1rem; /* Reduz o tamanho da fonte para caber melhor */
     }
 }
