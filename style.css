@@ -703,6 +703,11 @@ a:hover {
         max-width: 600px;
     }
 }
+@media (max-width: 1024px) {
+    .secao-destaque {
+        background-position: center; /* Centraliza a imagem de fundo em telas menores */
+    }
+}
 
 @media (max-width: 768px) {
     body {
