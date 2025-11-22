@@ -170,8 +170,8 @@ a:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(16, 8, 28, 0.92);
+    height: 100%; 
+    background-color: rgba(16, 8, 28, 0.7); /* Opacidade reduzida para clarear a imagem */
     z-index: -1;
 }
 
@@ -756,6 +756,11 @@ a:hover {
         min-height: auto;
     }
 
+    /* Garante que a seção principal do MEP ocupe a tela inteira no mobile */
+    .container > section.mep-hero {
+        min-height: calc(100vh - 60px);
+    }
+
     .secao-destaque h1 {
         font-size: 2.5rem;
     }
@@ -949,21 +954,29 @@ a:hover {
 
 /* Seção Hero MEP */
 .mep-hero {
-    text-align: center;
-    min-height: 70vh;
+    /* O alinhamento vertical já é feito pela regra .container > section */
 }
 
 .mep-hero .destaque-texto {
+    /* Transforma o container em flex para alinhar o conteúdo */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    align-items: flex-start; /* Alinha o texto à esquerda */
+    justify-content: center; /* Centraliza verticalmente */
+    text-align: center;
+    text-align: left; /* Alinha o texto à esquerda */
     max-width: 800px;
     margin: 0 auto;
+    height: 100%; /* Ocupa toda a altura disponível para centralizar */
 }
 
 .mep-hero h1 {
-    font-size: 3.5rem;
+    font-size: 4.5rem; /* Aumenta o impacto do título */
 }
 
 .mep-hero p {
-    font-size: 1.3rem;
+    font-size: 1.5rem; /* Aumenta a linha fina */
     margin-bottom: 2.5rem;
 }
 
@@ -1021,20 +1034,133 @@ a:hover {
 
 /* Seção CTA Final MEP */
 .secao-mep-cta {
-    background-color: var(--cor-fundo-destaque);
+    background: linear-gradient(180deg, var(--cor-acento) 0%, var(--cor-fundo) 100%);
     text-align: center;
-    /* Padding já é herdado de .container > section */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mep-cta-card {
+    background-color: rgba(26, 14, 42, 0.8); /* Fundo do card semi-transparente */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.cta-badge {
+    background-color: #FFD166;
+    color: var(--cor-fundo);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .secao-mep-cta h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: var(--cor-texto-principal);
 }
 
 .secao-mep-cta p {
     max-width: 600px;
     margin: 0 auto 2.5rem auto;
     color: var(--cor-secundaria);
+    font-size: 1.1rem;
+}
+
+.mep-cta-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 0.8rem;
+    color: var(--cor-texto-principal);
+}
+
+/* Estilo para os itens da lista de features do CTA */
+.mep-cta-features li {
+    position: relative;
+    padding-left: 25px; /* Espaço para o checkmark */
+}
+
+.mep-cta-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem; /* Tamanho do checkmark */
+    color: #FFD166; /* Checkmark amarelo */
+    font-weight: 700;
+}
+
+/* Estilos para o bloco de preços */
+.mep-price-box {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    background-color: var(--cor-fundo); /* Fundo mais escuro para o box de preço */
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    text-align: center; /* Centraliza o texto dentro do box */
+}
+
+.mep-price-box p {
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.mep-price-box .old-price {
+    font-size: 1rem;
+    color: var(--cor-secundaria);
+    opacity: 0.7;
+    margin-bottom: 0; /* Reduz o espaço após o preço antigo */
+}
+
+.mep-price-box .strikethrough {
+    text-decoration: line-through;
+    font-weight: 400;
+}
+
+.mep-price-box .installments {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+    margin-bottom: 0.5rem;
+}
+
+.mep-price-box .cash-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+    margin-bottom: 0; /* Sem margem inferior para a última linha de preço */
+}
+
+.mep-price-box .price-highlight {
+    color: #FFD166; /* Amarelo para destacar o preço */
+    font-size: 2.2rem; /* Torna o preço parcelado bem proeminente */
+}
+
+.mep-price-box .cash-price .price-highlight {
+    font-size: 1.8rem; /* Ajusta o tamanho do destaque do preço à vista */
 }
 
 .btn-cta-grande {
@@ -1042,11 +1168,73 @@ a:hover {
     font-size: 1.2rem;
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 209, 102, 0.4);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 15px rgba(255, 209, 102, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 209, 102, 0);
+    }
+}
+
+.btn-cta-pulse {
+    animation: pulse 2s infinite;
+}
+
 @media (max-width: 768px) {
     .mep-explanation-grid {
         grid-template-columns: 1fr;
     }
+
     .mep-hero h1 {
-        font-size: 2.5rem;
+        font-size: 3rem; /* Tamanho ajustado para mobile */
+    }
+
+    .mep-hero p {
+        font-size: 1.2rem; /* Tamanho ajustado para mobile */
+    }
+
+    .mep-hero .destaque-texto {
+        align-items: center; /* Centraliza no mobile */
+        text-align: center; /* Centraliza no mobile */
+    }
+
+    .mep-explanation-text h2 {
+        font-size: 2rem; /* Ajusta o título da seção de explicação */
+    }
+
+    .feature-card h4 {
+        font-size: 1.2rem; /* Ajusta o título dos cards de features */
+    }
+
+    .mep-cta-card {
+        padding: 2rem; /* Reduz o padding interno do card de venda */
+    }
+
+    .secao-mep-cta h2 {
+        font-size: 2rem; /* Ajusta o título da seção de venda */
+    }
+
+    /* Ajustes para mobile no bloco de preços */
+    .mep-price-box {
+        padding: 1rem 1.5rem;
+    }
+    .mep-price-box .installments {
+        font-size: 1.6rem;
+    }
+    .mep-price-box .cash-price {
+        font-size: 1.2rem;
+    }
+    .mep-price-box .price-highlight {
+        font-size: 1.8rem;
+    }
+    .mep-price-box .cash-price .price-highlight {
+        font-size: 1.5rem;
     }
 }
