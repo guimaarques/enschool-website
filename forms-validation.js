@@ -42,6 +42,11 @@ document.addEventListener("DOMContentLoaded", function() {
             // --- Fim das Validações ---
 
             const apiUrl = 'https://5mxzti9vx0.execute-api.us-east-1.amazonaws.com/prod/customers';
+            const submitButton = leadForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
 
             try {
                 const response = await fetch(apiUrl, {
@@ -67,6 +72,10 @@ document.addEventListener("DOMContentLoaded", function() {
             } catch (error) {
                 console.error('Erro na requisição:', error);
                 displayMessage('Não foi possível conectar ao servidor. Verifique sua conexão.', 'error');
+            } finally {
+                // Este bloco será executado sempre, seja sucesso ou erro.
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
             }
         });
     }

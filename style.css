@@ -127,6 +127,14 @@ a:hover {
     color: #fff;
 }
 
+.btn-cta:disabled,
+.btn-cta[disabled] {
+    background-color: var(--cor-secundaria);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
 .container {
     display: grid;
     grid-template-columns: 1fr;
