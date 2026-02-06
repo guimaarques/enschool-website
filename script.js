@@ -99,9 +99,15 @@ document.addEventListener("DOMContentLoaded", function() {
         const applyPhoneMask = (event) => {
             let input = event.target;
             let value = input.value.replace(/\D/g, '');
-            value = value.substring(0, 11); // Limita a 11 dígitos (DDD + 9 dígitos)
+            value = value.substring(0, 15); // Limita a 15 dígitos (DDI + DDD + 9 dígitos)
 
-            if (value.length > 6) {
+            if (value.length > 11) {
+                if (value.startsWith('55') && value.length === 13) {
+                    value = value.replace(/^(\d{2})(\d{2})(\d{5})(\d{4}).*/, '+$1 ($2) $3-$4');
+                } else {
+                    value = '+' + value;
+                }
+            } else if (value.length > 6) {
                 value = value.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, '($1) $2-$3');
             } else if (value.length > 2) {
                 value = value.replace(/^(\d{2})(\d{0,5}).*/, '($1) $2');
@@ -178,6 +184,77 @@ document.addEventListener("DOMContentLoaded", function() {
         acceptCookiesButton.addEventListener('click', () => {
             cookieBanner.classList.remove('show');
             localStorage.setItem('cookiesAccepted', 'true');
+        });
+    }
+
+    // --- Lógica do Modal de Venda (Carregamento Dinâmico) ---
+
+    const showVendaModal = async () => {
+        // Se o modal já existe no DOM, apenas o exiba.
+        const existingModal = document.getElementById('vendaModal');
+        if (existingModal) {
+            existingModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            return;
+        }
+
+        try {
+            // Busca o conteúdo do modal do arquivo HTML.
+            const response = await fetch('/modals/matricula-aula-grupo.html');
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            const modalHTML = await response.text();
+
+            // Insere o HTML do modal no final do body.
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+            const modal = document.getElementById('vendaModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+
+            // Função para fechar o modal
+            const closeModal = () => {
+                modal.classList.remove('show');
+                document.body.style.overflow = ''; // Restaura o scroll
+                sessionStorage.setItem('vendaModalClosed', 'true'); // Marca que o modal foi fechado na sessão
+            };
+
+            // Adiciona os eventos de clique para fechar
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) closeModal();
+            });
+
+            // Exibe o modal com uma pequena transição
+            // requestAnimationFrame garante que o navegador processe a inserção antes da animação.
+            requestAnimationFrame(() => {
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Impede o scroll da página ao fundo
+            });
+
+        } catch (error) {
+            console.error("Falha ao carregar o modal:", error);
+        }
+    };
+
+    // Fecha o modal se o usuário pressionar a tecla 'Escape'
+    document.addEventListener('keydown', (event) => {
+        const modal = document.getElementById('vendaModal');
+        if (event.key === 'Escape' && modal && modal.classList.contains('show')) {
+            // Reutiliza a lógica de fechar para manter a consistência
+            modal.querySelector('.close-button').click();
+        }
+    });
+
+    // Abre o modal automaticamente apenas se ele ainda não foi fechado nesta sessão
+    if (!sessionStorage.getItem('vendaModalClosed')) {
+        setTimeout(showVendaModal, 500); // Um pequeno delay para a página renderizar primeiro
+    }
+
+    // O botão no card de "Aulas ao Vivo" também deve abrir o modal
+    const openLiveClassModalBtn = document.querySelector('.product-card .btn-card'); // Ajuste o seletor se necessário
+    if (openLiveClassModalBtn && openLiveClassModalBtn.closest('.product-link').href.includes('#home')) {
+        openLiveClassModalBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Previne a rolagem para o topo
+            showVendaModal();
         });
     }
 });
