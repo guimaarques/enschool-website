@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         try {
             // Busca o conteúdo do modal do arquivo HTML.
-            const response = await fetch('/modals/matricula-aula-grupo.html');
+            const response = await fetch('/modals/mep-promo.html');
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const modalHTML = await response.text();
 
@@ -222,6 +222,12 @@ document.addEventListener("DOMContentLoaded", function() {
             modal.addEventListener('click', (event) => {
                 if (event.target === modal) closeModal();
             });
+
+            // Se o usuário clicar no CTA (ir para o MEP), marca como fechado para não exibir novamente
+            const modalCta = modal.querySelector('.modal-cta');
+            if (modalCta) {
+                modalCta.addEventListener('click', () => sessionStorage.setItem('vendaModalClosed', 'true'));
+            }
 
             // Exibe o modal com uma pequena transição
             // requestAnimationFrame garante que o navegador processe a inserção antes da animação.
@@ -245,7 +251,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Abre o modal automaticamente apenas se ele ainda não foi fechado nesta sessão
-    if (!sessionStorage.getItem('vendaModalClosed')) {
+    // E apenas se estiver na página inicial (evita abrir em /mep/)
+    if ((window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) && !window.location.pathname.includes('/mep/') && !sessionStorage.getItem('vendaModalClosed')) {
         setTimeout(showVendaModal, 500); // Um pequeno delay para a página renderizar primeiro
     }
 
