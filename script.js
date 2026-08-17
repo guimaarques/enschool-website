@@ -99,16 +99,20 @@ document.addEventListener("DOMContentLoaded", function() {
         const applyPhoneMask = (event) => {
             let input = event.target;
             let value = input.value.replace(/\D/g, '');
-            value = value.substring(0, 15); // Limita a 15 dígitos (DDI + DDD + 9 dígitos)
+            value = value.substring(0, 15); // Limita a 15 dígitos (DDI + DDD + número)
 
-            if (value.length > 11) {
-                if (value.startsWith('55') && value.length === 13) {
+            if (value.startsWith('55') && (value.length === 12 || value.length === 13)) {
+                // Brasil com DDI: +55 (XX) XXXXX-XXXX ou +55 (XX) XXXX-XXXX
+                if (value.length === 13) {
                     value = value.replace(/^(\d{2})(\d{2})(\d{5})(\d{4}).*/, '+$1 ($2) $3-$4');
                 } else {
-                    value = '+' + value;
+                    value = value.replace(/^(\d{2})(\d{2})(\d{4})(\d{4}).*/, '+$1 ($2) $3-$4');
                 }
+            } else if (value.length > 11) {
+                // Outro DDI: mantém apenas o "+" e os dígitos, sem forçar o padrão brasileiro
+                value = '+' + value;
             } else if (value.length > 6) {
-                value = value.replace(/^(\d{2})(\d{5})(\d{0,4}).*/, '($1) $2-$3');
+                value = value.replace(/^(\d{2})(\d{4,5})(\d{0,4}).*/, '($1) $2-$3');
             } else if (value.length > 2) {
                 value = value.replace(/^(\d{2})(\d{0,5}).*/, '($1) $2');
             } else if (value.length > 0) {
@@ -251,8 +255,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Abre o modal automaticamente apenas se ele ainda não foi fechado nesta sessão
-    // E apenas se estiver na página inicial (evita abrir em /mep/)
-    if ((window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) && !window.location.pathname.includes('/mep/') && !sessionStorage.getItem('vendaModalClosed')) {
+    // E apenas se estiver na página inicial (evita abrir em /mep/ e /pronuncia-descomplicada/)
+    if ((window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) && !window.location.pathname.includes('/mep/') && !window.location.pathname.includes('/pronuncia-descomplicada/') && !sessionStorage.getItem('vendaModalClosed')) {
         setTimeout(showVendaModal, 500); // Um pequeno delay para a página renderizar primeiro
     }
 

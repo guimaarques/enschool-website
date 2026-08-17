@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
 
-            // Validação do Telefone (deve ter 11 dígitos: DDD + 9 dígitos)
-            if (telephone.length !== 11) {
-                displayMessage('Por favor, insira um telefone válido com DDD (ex: (11) 98765-4321).', 'error');
+            // Validação do Telefone (aceita número brasileiro com DDD ou internacional com DDI)
+            if (telephone.length < 8 || telephone.length > 15) {
+                displayMessage('Por favor, insira um telefone válido com DDD/DDI (ex: (11) 98765-4321 ou +1 555 123 4567).', 'error');
                 phoneInputElement.focus();
                 return;
             }
